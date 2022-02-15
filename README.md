@@ -1,27 +1,28 @@
 # Superhero
+A Super Single Page Hero App.
+This project was generated with Angular version 13.2.3.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
+## Docker Deploy
 
-## Development server
+All the project is packed in a Docker Image.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Requirements
 
-## Code scaffolding
+- Docker
+- Docker-compose
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Deploy
+ To deploy the container open a terminal in the root of the project folder.
+ An execute:
+ 
+ ```bash
+  $ docker-compose up
+ ```
+If you prefer is possible build the image and run the container manualy. 
+but is recommend use the configuraton in the compose file, beacause the rights ports number for the app sever comunication is configured .
 
-## Build
+Evenly is posible change  this configuration in the `enviroments.ts`, `Dockerfile` and `docker-compose.yml`.
+the default configuration is: 
+- port 3000 for json-server 
+- port 8088 for nginx
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
