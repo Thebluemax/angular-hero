@@ -30,7 +30,7 @@ describe('SearchFormComponent', () => {
 
   it('input trigger search emmiter', () => {
     const term = 'Test Word';
-    component.searchTerm.subscribe( word => {
+    component.searchTerm.subscribe( (word:string) => {
       console.log(word)
       expect(word).toBe(term)
     } )
