@@ -3,25 +3,35 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FlexLayoutModule} from '@angular/flex-layout';
+import { MatTableModule } from '@angular/material/table';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
 @NgModule({
   declarations: [],
   imports: [
-    MatToolbarModule,
+    FlexLayoutModule,
+    MatButtonModule,
+    MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule,
-    FlexLayoutModule
+    MatPaginatorModule,
+    MatTableModule,
+    MatToolbarModule,
   ],
   exports: [
-    MatToolbarModule,
+    FlexLayoutModule,
+    MatButtonModule,
+    MatButtonModule,
+    MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule,
-    FlexLayoutModule
+    MatPaginatorModule,
+    MatTableModule,
+    MatToolbarModule,
   ]
 })
 export class SharedModule { }

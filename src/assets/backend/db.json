@@ -53,8 +53,7 @@
       "id": 1581812813,
       "name": "Spawn",
       "realName": "Albert Francis \"Al\" Simmons",
-      "publisher": "Imagine",
-      "group": "Malebolgia's Army"
+      "publisher": "Imagine"
     },
     {
       "id": 1581816772,
@@ -76,6 +75,12 @@
       "realName": "Querl Dox",
       "publisher": "DC",
       "group": "Legion of Super-Heroes"
+    },
+    {
+      "id": 1581812924,
+      "name": "Space Ghost",
+      "realName": "Thaddeus Bach",
+      "publisher": "Hanna-Barbera"
     },
     {
       "id": 1581342712,

@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SuperheroComponent } from './superhero.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('SuperheroComponent', () => {
   let component: SuperheroComponent;
@@ -12,6 +13,7 @@ describe('SuperheroComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ SuperheroComponent ],
       imports: [RouterTestingModule,
+        NoopAnimationsModule,
       SharedModule]
     })
     .compileComponents();
