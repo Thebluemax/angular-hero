@@ -6,9 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
  */
 
 const routes: Routes = [
-  {path: '', redirectTo:'/superhero', pathMatch: 'full'},
+  {path: '', redirectTo:'/superhero/heros', pathMatch: 'full'},
   { path:'superhero', loadChildren: ()=> import('./modules/superhero/superhero.module')
-                                          .then( m => m.SuperheroModule)}
+                                          .then( m => m.SuperheroModule)},
+  {path: '*', redirectTo:'/superhero/heros'},
 ];
 
 @NgModule({

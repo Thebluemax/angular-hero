@@ -7,7 +7,6 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
 describe('SuperheroComponent', () => {
   let component: SuperheroComponent;
   let fixture: ComponentFixture<SuperheroComponent>;
-  let app:SuperheroComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,28 +20,35 @@ describe('SuperheroComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SuperheroComponent);
     component = fixture.componentInstance;
-   // fixture.detectChanges();
-    app = fixture.componentInstance;
+    fixture.componentInstance;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-
-
   it(`should have as title 'superhero' by default`, () => {
 
-    expect( app.title ).toBe('SuperHero App');
+    expect( component.title ).toBe('SuperHero App');
 
+  });
+
+  it('must have a Mattoolbar tag', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('mat-toolbar')).not.toBeNull();
   });
 
   it('should render title in change', () => {
     const title = 'Test Title';
-    expect( app.title ).toBe('SuperHero App');
-    app.title = title;
+    expect( component.title ).toBe('SuperHero App');
+    component.title = title;
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('span#main-title')?.textContent).toBe(title);
+  });
+
+  it('must have a router tag', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 });

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FlexLayoutModule} from '@angular/flex-layout';
 
 
 
@@ -12,13 +13,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FlexLayoutModule
   ],
   exports: [
     MatToolbarModule,
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    FlexLayoutModule
   ]
 })
 export class SharedModule { }
