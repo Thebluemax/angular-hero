@@ -1,3 +1,144 @@
 {
-
+  "heros": [
+    {
+      "id": 1581812710,
+      "name": "Aquaman",
+      "realName": "Artur Curry",
+      "plublisher": "DC",
+      "group": "Justice League"
+    },
+    {
+      "id": 1581812711,
+      "name": "Spiderman",
+      "realName": "Peter Parker",
+      "publisher": "Marvel",
+      "group": "Avengers"
+    },
+    {
+      "id": 1581812712,
+      "name": "Batman",
+      "realName": "Bruce Wane",
+      "publisher": "Dc",
+      "group": "Justice League"
+    },
+    {
+      "id": 158181273,
+      "name": "Wonder Woman",
+      "realName": "Diana Prince",
+      "publisher": "DC",
+      "group": "Justice League"
+    },
+    {
+      "id": 1581812442,
+      "name": "Flash",
+      "realName": "Barry Allen",
+      "publisher": "Dc",
+      "group": "Justice League"
+    },
+    {
+      "id": 1581812512,
+      "name": "Vision",
+      "realName": "Vision",
+      "publisher": "Marvel",
+      "group": "Avengers"
+    },
+    {
+      "id": 1581852712,
+      "name": "Hulk",
+      "realName": "David Baner",
+      "publisher": "Marvel",
+      "group": "Avengers"
+    },
+    {
+      "id": 1581812813,
+      "name": "Spawn",
+      "realName": "Albert Francis \"Al\" Simmons",
+      "publisher": "Imagine",
+      "group": "Malebolgia's Army"
+    },
+    {
+      "id": 1581816772,
+      "name": "Elasti Girl",
+      "realName": "Rita Farr",
+      "publisher": "DC",
+      "group": "Doom Patrol"
+    },
+    {
+      "id": 1581817782,
+      "name": "Robotman",
+      "realName": "Cliff Steele",
+      "publisher": "Dc",
+      "group": "Doom Patrol"
+    },
+    {
+      "id": 1581812755,
+      "name": "Brainiac 5",
+      "realName": "Querl Dox",
+      "publisher": "DC",
+      "group": "Legion of Super-Heroes"
+    },
+    {
+      "id": 1581342712,
+      "name": "Starman",
+      "realName": "Thom Kallor",
+      "publisher": "Dc",
+      "group": "Legion of Super-Heroes"
+    },
+    {
+      "id": 1581815612,
+      "name": "Iceman",
+      "realName": "Robert Louis \"Bobby\" Drake",
+      "publisher": "Marvel",
+      "group": "X-Men"
+    },
+    {
+      "id": 1581812972,
+      "name": "Wolverine",
+      "realName": "James Logan",
+      "publisher": "Marvel",
+      "group": "X-Men"
+    },
+    {
+      "id": 1581812990,
+      "name": "The Tick",
+      "realName": "unknown",
+      "publisher": "New England Comics",
+      "group": "Unknown"
+    },
+    {
+      "id": 1581812981,
+      "name": "Doctor Manhattan",
+      "realName": "Dr. Jonathan Osterman",
+      "publisher": "DC",
+      "group": "Watchmen"
+    },
+    {
+      "id": 1581812890,
+      "name": "The Comedian",
+      "realName": "Edward Blake",
+      "publisher": "DC",
+      "group": "Watchmen"
+    },
+    {
+      "id": 1581812880,
+      "name": "Rorschach",
+      "realName": "Walter Joseph Kovacs",
+      "publisher": "DC",
+      "group": "Watchmen"
+    },
+    {
+      "id": 158181987,
+      "name": "Jean Grey",
+      "realName": "Jean Elaine Grey Summers",
+      "publisher": "Marvel",
+      "group": "X-Men"
+    },
+    {
+      "id": 1581815432,
+      "name": "Storm",
+      "realName": "Ororo Iqadi Munroe",
+      "publisher": "Marvel",
+      "group": "X-Men"
+    }
+  ]
 }
