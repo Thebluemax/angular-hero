@@ -1,35 +1,38 @@
 <div>
-    <form>
+    <form [formGroup]="form">
 
         <div fxLayout="column" fxLayoutAlign="space-between center">
             <!--id field-->
             <mat-form-field appearance="fill">
               <mat-label>Enter your email</mat-label>
               <input matInput placeholder="pat@example.com"
-               [formControl]="email" required>
+               formControlName="name" required>
               <mat-error *ngIf="true">{{'error'}}</mat-error>
             </mat-form-field>
             <!--name field-->
             <mat-form-field appearance="fill">
                 <mat-label>Enter your email</mat-label>
                 <input matInput placeholder="pat@example.com"
-                 [formControl]="email" required>
+                 formControlName="realName" required>
                 <mat-error *ngIf="true">{{'error'}}</mat-error>
               </mat-form-field>
             <!--publisher field-->
               <mat-form-field appearance="fill">
                 <mat-label>Enter your email</mat-label>
                 <input matInput placeholder="pat@example.com"
-                 [formControl]="email" required>
+                 formControlName="publisher" required>
                 <mat-error *ngIf="true">{{'error'}}</mat-error>
               </mat-form-field>
             <!--group field-->
               <mat-form-field appearance="fill">
                 <mat-label>Enter your email</mat-label>
                 <input matInput placeholder="pat@example.com" 
-                [formControl]="email">
+                formControlName="group">
                 <mat-error *ngIf="true">{{'error'}}</mat-error>
               </mat-form-field>
+        </div>
+        <div>
+            <button mat-button color="primary">Primary</button>
         </div>
     </form>
 </div>
