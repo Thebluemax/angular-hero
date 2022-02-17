@@ -1,0 +1,35 @@
+<div>
+    <form>
+
+        <div fxLayout="column" fxLayoutAlign="space-between center">
+            <!--id field-->
+            <mat-form-field appearance="fill">
+              <mat-label>Enter your email</mat-label>
+              <input matInput placeholder="pat@example.com"
+               [formControl]="email" required>
+              <mat-error *ngIf="true">{{'error'}}</mat-error>
+            </mat-form-field>
+            <!--name field-->
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com"
+                 [formControl]="email" required>
+                <mat-error *ngIf="true">{{'error'}}</mat-error>
+              </mat-form-field>
+            <!--publisher field-->
+              <mat-form-field appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com"
+                 [formControl]="email" required>
+                <mat-error *ngIf="true">{{'error'}}</mat-error>
+              </mat-form-field>
+            <!--group field-->
+              <mat-form-field appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" 
+                [formControl]="email">
+                <mat-error *ngIf="true">{{'error'}}</mat-error>
+              </mat-form-field>
+        </div>
+    </form>
+</div>

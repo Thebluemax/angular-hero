@@ -1,18 +1,7 @@
 {
   "heros": [
     {
-      "id": 1581812710,
-      "name": "Aquaman",
-      "realName": "Artur Curry",
-      "plublisher": "DC",
-      "group": "Justice League"
-    },
-    {
-      "id": 1581812711,
-      "name": "Spiderman",
-      "realName": "Peter Parker",
-      "publisher": "Marvel",
-      "group": "Avengers"
+      "id": 1581812710
     },
     {
       "id": 1581812712,
@@ -144,6 +133,9 @@
       "realName": "Ororo Iqadi Munroe",
       "publisher": "Marvel",
       "group": "X-Men"
+    },
+    {
+      "id": 1581852713
     }
   ]
 }

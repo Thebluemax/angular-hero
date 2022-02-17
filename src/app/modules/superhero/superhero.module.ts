@@ -7,6 +7,8 @@ import { SearchFormComponent } from './components/search-form/search-form.compon
 import { HerosComponent } from './components/heros/heros.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeroService } from 'src/app/core/services/hero.service';
+import { HeroFormComponent } from './components/hero-form/hero-form.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 
@@ -14,13 +16,16 @@ import { HeroService } from 'src/app/core/services/hero.service';
   declarations: [
     SuperheroComponent,
     SearchFormComponent,
-    HerosComponent
+    HerosComponent,
+    HeroFormComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     HttpClientModule,
-    SuperheroRoutingModule
+    SuperheroRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers:[
     HeroService

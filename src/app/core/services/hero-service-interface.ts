@@ -6,7 +6,8 @@ export interface HeroInterface {
 
   getHeros(): Observable<{heros:Hero[], total:number}>;
   getHero(hero:number): Observable<Hero>;
-  getHerosByTerm(term:string): Observable<Hero[]>;
+  getHerosByTerm(term:string): Observable<{heros:Hero[], total:number}>;
   updateHero(hero: Hero): Observable<Hero>;
   deleteHero(hero: number): Observable<any>;
 }
+ 
