@@ -2,10 +2,17 @@ import {Component, OnInit, AfterViewInit, ViewChild} from "@angular/core";
 import {Hero} from "src/app/core/models/hero";
 import {MatTableDataSource} from "@angular/material/table";
 import { MatPaginator } from '@angular/material/paginator';
+import { Observable } from 'rxjs';
+import { HeroService } from 'src/app/core/services/hero.service';
 /**
  * A Super Hero list Component
  */
-@Component({selector: "app-heros", templateUrl: "./heros.component.html", styleUrls: ["./heros.component.scss"]})
+@Component({
+  selector: "app-heros",
+ templateUrl: "./heros.component.html",
+  styleUrls: ["./heros.component.scss"]
+})
+
 export class HerosComponent implements OnInit,
 AfterViewInit {
 
@@ -23,13 +30,20 @@ AfterViewInit {
 
   @ViewChild('paginator',{static:true}) paginator: MatPaginator;
 
-  constructor() {
+  constructor(
+    private heroService: HeroService
+  ) {
     this.dataSource = new MatTableDataSource<Hero>();
   }
 
   ngOnInit(): void {
    // this.dataSource.data = this.heros;
-
+    this.heroService.getHeros().
+    subscribe( ({heros, total}) => {
+      this.dataSource.data = heros;
+      this.herosTotal = total;
+    }
+      )
   }
 
   ngAfterViewInit(): void {

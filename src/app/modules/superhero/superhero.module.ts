@@ -5,6 +5,8 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { SuperheroRoutingModule } from './superhero-routing.module';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { HerosComponent } from './components/heros/heros.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HeroService } from 'src/app/core/services/hero.service';
 
 
 
@@ -17,7 +19,11 @@ import { HerosComponent } from './components/heros/heros.component';
   imports: [
     CommonModule,
     SharedModule,
+    HttpClientModule,
     SuperheroRoutingModule
+  ],
+  providers:[
+    HeroService
   ]
 })
 export class SuperheroModule { }

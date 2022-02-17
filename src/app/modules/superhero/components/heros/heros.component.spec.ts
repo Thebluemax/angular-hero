@@ -3,6 +3,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HerosComponent } from './heros.component';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HeroService } from 'src/app/core/services/hero.service';
+import { SearchFormComponent } from '../search-form/search-form.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 const heros = [
   {
@@ -25,10 +29,14 @@ describe('HerosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HerosComponent ],
+      declarations: [ HerosComponent,
+      SearchFormComponent ],
       imports:[SharedModule,
-        NoopAnimationsModule
-      ]
+        RouterTestingModule,
+        NoopAnimationsModule,
+        HttpClientTestingModule
+      ],
+      providers:[ HeroService]
     })
     .compileComponents();
   });

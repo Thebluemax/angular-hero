@@ -7,21 +7,32 @@
       <!-- Super Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Super </th>
-        <td mat-cell *matCellDef="let hero"> {{hero.name}} </td>
+        <td mat-cell *matCellDef="let hero">
+          {{hero.name}} <br>
+          <span>{{hero.realName}}</span>
+         </td>
       </ng-container>
 
       <!-- Publisher Column -->
       <ng-container matColumnDef="publisher">
         <th mat-header-cell *matHeaderCellDef> Publisher </th>
-        <td mat-cell *matCellDef="let hero"> {{hero.publiser}} </td>
+        <td mat-cell *matCellDef="let hero"> {{hero.publisher}} </td>
       </ng-container>
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> </th>
         <td mat-cell *matCellDef="let hero">
-          <button mat-flat-button color="primary">Primary</button>
-          <button mat-flat-button color="warn">Warn</button>
+          <button mat-icon-button  color="accent">
+            <mat-icon>
+              home
+            </mat-icon>
+          </button>
+          <button mat-icon-button color="warn">
+            <mat-icon>
+              home
+            </mat-icon>
+          </button>
         </td>
       </ng-container>
 

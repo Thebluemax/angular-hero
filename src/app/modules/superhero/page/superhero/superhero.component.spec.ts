@@ -4,6 +4,7 @@ import { SuperheroComponent } from './superhero.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HeroService } from 'src/app/core/services/hero.service';
 
 describe('SuperheroComponent', () => {
   let component: SuperheroComponent;
@@ -14,7 +15,8 @@ describe('SuperheroComponent', () => {
       declarations: [ SuperheroComponent ],
       imports: [RouterTestingModule,
         NoopAnimationsModule,
-      SharedModule]
+      SharedModule],
+      providers:[HeroService]
     })
     .compileComponents();
   });
