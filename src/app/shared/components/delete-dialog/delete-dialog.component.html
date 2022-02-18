@@ -1,0 +1,19 @@
+
+<div *ngIf="open;else buttonTemplate">
+
+    <div id="backgroud-panel">
+        <div id="frame">
+            <button mat-raised-button (click)="cancel()">Cancel</button>
+            <button mat-raised-button color="warn" (click)="confirm()">Delete {{ hero.name }}?</button>
+        </div>
+    </div>
+</div>
+<ng-template #buttonTemplate>
+    <button mat-icon-button color="warn"
+    (click)="openFrame()">
+        <mat-icon>
+          delete
+        </mat-icon>
+      </button>
+</ng-template>
+    

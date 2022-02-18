@@ -58,7 +58,6 @@ export class HeroService implements HeroInterface {
  * @param hero 
  */
   updateHero(hero : Hero): Observable<Hero> {
-   
     return this.http.put<Hero>(`${this.apiUrl}${hero.id}`, hero,{
         headers:this.headers
     });

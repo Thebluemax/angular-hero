@@ -1,9 +1,6 @@
 {
   "heros": [
     {
-      "id": 1581812710
-    },
-    {
       "id": 1581812712,
       "name": "Batman",
       "realName": "Bruce Wane",
@@ -45,13 +42,6 @@
       "publisher": "Imagine"
     },
     {
-      "id": 1581816772,
-      "name": "Elasti Girl",
-      "realName": "Rita Farr",
-      "publisher": "DC",
-      "group": "Doom Patrol"
-    },
-    {
       "id": 1581817782,
       "name": "Robotman",
       "realName": "Cliff Steele",
@@ -79,13 +69,6 @@
       "group": "Legion of Super-Heroes"
     },
     {
-      "id": 1581815612,
-      "name": "Iceman",
-      "realName": "Robert Louis \"Bobby\" Drake",
-      "publisher": "Marvel",
-      "group": "X-Men"
-    },
-    {
       "id": 1581812972,
       "name": "Wolverine",
       "realName": "James Logan",
@@ -95,16 +78,9 @@
     {
       "id": 1581812990,
       "name": "The Tick",
-      "realName": "unknown",
+      "realName": "Unknown",
       "publisher": "New England Comics",
       "group": "Unknown"
-    },
-    {
-      "id": 1581812981,
-      "name": "Doctor Manhattan",
-      "realName": "Dr. Jonathan Osterman",
-      "publisher": "DC",
-      "group": "Watchmen"
     },
     {
       "id": 1581812890,

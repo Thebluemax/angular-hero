@@ -4,6 +4,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import { MatPaginator } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { HeroService } from 'src/app/core/services/hero.service';
+import { Router } from '@angular/router';
 /**
  * A Super Hero list Component
  */
@@ -31,19 +32,15 @@ AfterViewInit {
   @ViewChild('paginator',{static:true}) paginator: MatPaginator;
 
   constructor(
-    private heroService: HeroService
+    private heroService: HeroService,
+    private router: Router
   ) {
     this.dataSource = new MatTableDataSource<Hero>();
   }
 
   ngOnInit(): void {
    // this.dataSource.data = this.heros;
-    this.heroService.getHeros().
-    subscribe( ({heros, total}) => {
-      this.dataSource.data = heros;
-      this.herosTotal = total;
-    }
-      )
+    this.getHeros();
   }
 
   ngAfterViewInit(): void {
@@ -52,28 +49,56 @@ AfterViewInit {
   /**
    *
    */
-  getHeros() {}
+  getHeros() {
+    this.heroService.getHeros().
+    subscribe( ({heros, total}) => {
+      this.dataSource.data = heros;
+      this.herosTotal = total;
+    }
+      )
+  }
+  /**
+   * 
+   * @param term 
+   */
+  search(term: string){
+    const subs = this.heroService.getHerosByTerm(term)
+      .subscribe( ({heros, total}) => {
+        this.dataSource.data = heros;
+        this.herosTotal = total;
+      });
+    
+  }
   /**
    *
    */
   updateTable() {
     this.dataSource.data = this.heros;
   }
-  /**
-   * Add a hero to db
-   */
-  addHero() {}
-
+  
   /**
    * edit a hero
    */
   editHero(hero : Hero) {
-
+    this.router.navigate([`/superhero/heros/${hero.id}`])
   }
 /**
  *
  */
-  deleteHero() {
+  deleteHero({id}:Hero) {
+    if(!id)
+      return;
 
+    const subs = this.heroService.deleteHero(id)
+    .subscribe(({msg}) => {
+      if(msg = 'success'){
+        this.deleteFromArray(id);
+      }
+    });
   }
+
+  deleteFromArray(idHero:number){
+    this.dataSource.data = this.dataSource.data.filter( hero => hero.id !== idHero)
+  };
 }
+

@@ -77,7 +77,6 @@ describe('HeroService', () => {
 
     service.getHero(herosMock[0].id)
     .subscribe( (hero:Hero) => {
-      console.log(hero)
       expect(hero).toEqual(herosMock[0]);
     
     });

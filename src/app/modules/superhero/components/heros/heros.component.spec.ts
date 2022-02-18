@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HerosComponent } from './heros.component';
-import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HeroService } from 'src/app/core/services/hero.service';
@@ -86,7 +86,6 @@ describe('HerosComponent', () => {
   it('the paginator must have the default setUp ', () => {
     component.dataSource.data = heros;
     expect(component.paginator).toBeTruthy();
-    console.log(component.paginator.length);
     expect(component.paginator.length).toBe(0);
     expect(component.paginator.pageSize).toBe(component.rows);
     expect(component.paginator.pageSizeOptions).toEqual(component.pageSizeOptions);

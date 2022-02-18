@@ -1,5 +1,5 @@
 <form >
   <mat-form-field class="" appearance="fill">
-    <input matInput placeholder="hero" value="Sushi">
+    <input matInput appUpercaseInput placeholder="hero" value="" (keyup)="search($event.target.value)">
   </mat-form-field>
 </form>
