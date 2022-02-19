@@ -6,3 +6,41 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .toolbar-spacer {
   flex: 1 1 auto;
 }
+/** modal background */
+
+#backgroud-panel{
+  align-items: center;
+  display: flex;
+  height: calc(100vh - 65px);
+  justify-content: center;
+  left: 0px;
+  position: fixed;
+  top: 65px;
+  width: 100vw;
+  z-index: 10;
+      #frame{
+          height: min-content;
+          width: max-content;
+  
+      }
+  }
+
+  /** helpers */
+  .w-100 {
+    width: 100%;
+  }
+  .w-80 {
+    width: 80%;
+  }
+  .w-60 {
+    width: 60%;
+  }
+  .m-auto {
+    margin: auto;
+  }
+  .m-1 {
+    margin: 1% !important;
+  }
+  .text-center {
+    text-align: center;
+  }

@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Observable, Subscription, of } from 'rxjs';
 import { HerosComponent } from './heros.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +26,7 @@ const heros = [
 describe('HerosComponent', () => {
   let component: HerosComponent;
   let fixture: ComponentFixture<HerosComponent>;
+  let service: HeroService = new HeroService(null);
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -36,7 +37,7 @@ describe('HerosComponent', () => {
         NoopAnimationsModule,
         HttpClientTestingModule
       ],
-      providers:[ HeroService]
+      //providers:[ HeroService]
     })
     .compileComponents();
   });
@@ -44,6 +45,7 @@ describe('HerosComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HerosComponent);
     component = fixture.componentInstance;
+   // component = fixture.
     fixture.detectChanges();
   });
 
@@ -98,5 +100,31 @@ describe('HerosComponent', () => {
     //expect(rows?.length).toBe(heros.length);
   });
 
+  it('ngOnInit() must call getHeros()', () => {
+    const spy = spyOn( component, 'getHeros').and.callFake(() => {
+      return of(
+        {
+          heros: heros,
+          total: heros.length
+        }
+      );
+    });
+    component.ngOnInit();
+    expect( spy ).toHaveBeenCalled();
+  });
 
+  it('get() must call getHeros() in service and fill heros', () => {
+    const spy = spyOn( component, 'getHeros').and.callFake(() => {
+      return of(
+        {
+          heros: heros,
+          total: heros.length
+        }
+      );
+    });
+    component.getHeros();
+    expect( spy ).toHaveBeenCalled();
+   // expect( component.dataSource.data ).toEqual(heros);
+   // expect( component.herosTotal ).toBe(heros.length);
+  });
 });

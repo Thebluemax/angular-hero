@@ -1,5 +1,6 @@
 <form >
-  <mat-form-field class="" appearance="fill">
-    <input matInput appUpercaseInput placeholder="hero" value="" (keyup)="search($event.target.value)">
+  <mat-form-field class="w-100" appearance="fill" color="primary">
+    <input matInput appUpercaseInput placeholder="hero" 
+    (keyup)="search($any($event.target).value)">
   </mat-form-field>
 </form>

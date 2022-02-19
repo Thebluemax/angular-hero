@@ -85,14 +85,14 @@ AfterViewInit {
 /**
  *
  */
-  deleteHero({id}:Hero) {
-    if(!id)
+  deleteHero(hero:Hero) {
+    if(!hero)
       return;
 
-    const subs = this.heroService.deleteHero(id)
+    const subs = this.heroService.deleteHero(hero.id)
     .subscribe(({msg}) => {
       if(msg = 'success'){
-        this.deleteFromArray(id);
+        this.deleteFromArray(hero.id);
       }
     });
   }

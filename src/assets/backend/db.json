@@ -15,13 +15,6 @@
       "group": "Justice League"
     },
     {
-      "id": 1581812442,
-      "name": "Flash",
-      "realName": "Barry Allen",
-      "publisher": "Dc",
-      "group": "Justice League"
-    },
-    {
       "id": 1581812512,
       "name": "Vision",
       "realName": "Vision",
@@ -109,9 +102,6 @@
       "realName": "Ororo Iqadi Munroe",
       "publisher": "Marvel",
       "group": "X-Men"
-    },
-    {
-      "id": 1581852713
     }
   ]
 }

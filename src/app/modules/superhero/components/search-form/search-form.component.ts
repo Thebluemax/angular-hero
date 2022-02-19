@@ -13,8 +13,10 @@ export class SearchFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  search(value:any){
-    this.searchTerm.emit(value)
+  search(value:any ){
+    console.log(value)
+    
+      this.searchTerm.emit(value)
   }
 
 }

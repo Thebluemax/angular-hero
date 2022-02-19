@@ -8,14 +8,20 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card'; 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 import { CommonModule } from '@angular/common';
 import { UpercaseInputDirective } from './directives/upercase-input.directive';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 
 @NgModule({
-  declarations: [DeleteDialogComponent, UpercaseInputDirective],
+  declarations: [
+    DeleteDialogComponent, 
+    UpercaseInputDirective, 
+    SpinnerComponent
+  ],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -27,6 +33,7 @@ import { UpercaseInputDirective } from './directives/upercase-input.directive';
     MatPaginatorModule,
     MatTableModule,
     MatToolbarModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     /** Material */
@@ -39,8 +46,10 @@ import { UpercaseInputDirective } from './directives/upercase-input.directive';
     MatPaginatorModule,
     MatTableModule,
     MatToolbarModule,
+    MatProgressSpinnerModule,
     /** Components */
     DeleteDialogComponent,
+    SpinnerComponent,
     /** Directives */
     UpercaseInputDirective
   ]
