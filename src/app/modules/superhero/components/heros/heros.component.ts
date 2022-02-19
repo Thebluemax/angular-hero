@@ -2,7 +2,7 @@ import {Component, OnInit, AfterViewInit, ViewChild} from "@angular/core";
 import {Hero} from "src/app/core/models/hero";
 import {MatTableDataSource} from "@angular/material/table";
 import { MatPaginator } from '@angular/material/paginator';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { HeroService } from 'src/app/core/services/hero.service';
 import { Router } from '@angular/router';
 /**
@@ -16,14 +16,12 @@ import { Router } from '@angular/router';
 
 export class HerosComponent implements OnInit,
 AfterViewInit {
-
-  heros: Hero[] = [
-
-  ];
+  subscriptions: Subscription[] = [];
+  heroList: Hero[] = [];
   dataSource: MatTableDataSource<Hero>;
 
   herosTotal: number = 0;
-  rows:number = 10;
+  rows:number = 5;
   page:number = 1;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
@@ -50,12 +48,15 @@ AfterViewInit {
    *
    */
   getHeros() {
-    this.heroService.getHeros().
+   const subs = this.heroService.getHeros().
     subscribe( ({heros, total}) => {
-      this.dataSource.data = heros;
+      this.heroList = heros;
+      this.dataSource.data = this.paginateList(this.paginator.pageIndex, this.paginator.pageSize);
       this.herosTotal = total;
-    }
-      )
+    },
+    err => console.log(err)
+      );
+      this.subscriptions.push(subs);
   }
   /**
    * 
@@ -66,14 +67,10 @@ AfterViewInit {
       .subscribe( ({heros, total}) => {
         this.dataSource.data = heros;
         this.herosTotal = total;
-      });
-    
-  }
-  /**
-   *
-   */
-  updateTable() {
-    this.dataSource.data = this.heros;
+      },
+      err => console.error
+      );
+      this.subscriptions.push(subs);
   }
   
   /**
@@ -91,14 +88,39 @@ AfterViewInit {
 
     const subs = this.heroService.deleteHero(hero.id)
     .subscribe(({msg}) => {
-      if(msg = 'success'){
+      if(msg == 'success'){
         this.deleteFromArray(hero.id);
       }
-    });
+    },
+    (err) =>{ console.error(err)}
+    );
+
+    this.subscriptions.push(subs);
+
   }
 
   deleteFromArray(idHero:number){
-    this.dataSource.data = this.dataSource.data.filter( hero => hero.id !== idHero)
+    this.heroList= this.heroList.filter( hero => hero.id !== idHero);
+    this.dataSource.data = this.paginateList(this.paginator.pageIndex,this.paginator.pageSize)
+    this.herosTotal = this.heroList.length;
   };
+
+  paginateList(page:number, size:number){
+    const start = page * size;
+    const length = this.heroList.length;
+    const end = (start + size) > length ? length : start + size;
+    return this.heroList.slice(start,end);
+
+  }
+
+  changePage(page: number, size: number){
+    this.dataSource.data =  this.paginateList(page,size);
+  }
+   /**
+   * 
+   */
+    onDestroy(){
+      this.subscriptions.forEach(subscription => subscription.unsubscribe())
+    }
 }
 

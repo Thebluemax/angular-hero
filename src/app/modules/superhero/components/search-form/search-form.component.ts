@@ -14,8 +14,6 @@ export class SearchFormComponent implements OnInit {
   ngOnInit(): void {
   }
   search(value:any ){
-    console.log(value)
-    
       this.searchTerm.emit(value)
   }
 

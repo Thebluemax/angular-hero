@@ -73,6 +73,22 @@ describe('HeroService', () => {
     request.flush(herosMock)
   });
 
+  it('getHeros() catch error', () => {
+
+    service.getHeros()
+    .subscribe( () => {
+    },
+    err=>{
+      expect(err).toBe('opps!!');
+    });
+    const url = `${environment.apiUrl}`;
+    const request = httpMock.expectOne(url);
+    //expect(request.request.method).toBe('GET');
+    
+    request.error(new ErrorEvent('network error'))
+  
+  });
+
   it('getHero(heroId) return the hero', () => {
 
     service.getHero(herosMock[0].id)
@@ -85,6 +101,21 @@ describe('HeroService', () => {
     expect(req.request.method).toBe('GET');
     
     req.flush(herosMock[0])
+  });
+
+  it('getHero(heroId) catch error', () => {
+
+    service.getHero(herosMock[0].id)
+    .subscribe( () => {
+    },
+    err=>{
+      expect(err).toBe('opps!!');
+    });
+    const url = `${environment.apiUrl}${herosMock[0].id}`;
+    const request = httpMock.expectOne(url);
+    //expect(request.request.method).toBe('GET');
+    
+    request.error(new ErrorEvent('network error'));
   });
 
   it('getHeroByTerm( term ) return a heros list', () => {
@@ -102,6 +133,20 @@ describe('HeroService', () => {
     req.flush(herosMock)
   });
 
+  it('getHerosByTerm( term ) catch error', () => {
+
+    service.getHerosByTerm(herosMock[0].name)
+    .subscribe( () => {
+    },
+    err=>{
+      expect(err).toBe('opps!!');
+    });
+    const url = `${environment.apiUrl}?name_like=${herosMock[0].name}`;
+    const request = httpMock.expectOne(url);
+    
+    request.error(new ErrorEvent('network error'));
+  });
+
   it('getHeroByTerm( null ) not params in url and return a heros list', () => {
     const word = '';
     service.getHerosByTerm(word)
@@ -116,6 +161,7 @@ describe('HeroService', () => {
     
     req.flush(herosMock)
   });
+
   it('updateHero( hero )  return a hero', () => {
     
     service.updateHero(updateHeroMock)
@@ -130,6 +176,20 @@ describe('HeroService', () => {
     req.flush(updateHeroMock)
   });
 
+  it('updateHero( hero ) catch error', () => {
+
+    service.updateHero(herosMock[0])
+    .subscribe( () => {
+    },
+    err=>{
+      expect(err).toBe('opps!!');
+    });
+    const url = `${environment.apiUrl}${herosMock[0].id}`;
+    const request = httpMock.expectOne(url);
+    
+    request.error(new ErrorEvent('network error'));
+  });
+  
   it('deleteHero( hero )  return "success"', () => {
     
     service.deleteHero(updateHeroMock.id)
@@ -142,5 +202,19 @@ describe('HeroService', () => {
     expect(req.request.method).toBe('DELETE');
     
     req.flush({})
+  });
+
+  it('deleteHero( hero ) catch error', () => {
+
+    service.deleteHero(herosMock[0].id)
+    .subscribe( () => {
+    },
+    err=>{
+      expect(err).toBe('opps!!');
+    });
+    const url = `${environment.apiUrl}${herosMock[0].id}`;
+    const request = httpMock.expectOne(url);
+    
+    request.error(new ErrorEvent('network error'));
   });
 });

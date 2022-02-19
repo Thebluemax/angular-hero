@@ -36,23 +36,4 @@ describe('SuperheroComponent', () => {
     expect( component.title ).toBe('SuperHero App');
 
   });
-
-  it('must have a Mattoolbar tag', () => {
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('mat-toolbar')).not.toBeNull();
-  });
-
-  it('should render title in change', () => {
-    const title = 'Test Title';
-    expect( component.title ).toBe('SuperHero App');
-    component.title = title;
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('span#main-title')?.textContent).toBe(title);
-  });
-
-  it('must have a router tag', () => {
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('router-outlet')).toBeTruthy();
-  });
 });

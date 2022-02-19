@@ -1,6 +1,6 @@
 import {Injectable, ɵɵresolveBody} from "@angular/core";
 import {HeroInterface} from "./hero-service-interface";
-import {Observable, pipe, map } from "rxjs";
+import {Observable, pipe, map, catchError, throwError } from "rxjs";
 import {Hero} from "../models/hero";
 import {HttpClient, HttpParams, HttpHeaderResponse, HttpHeaders} from "@angular/common/http";
 import {environment} from "src/environments/environment";
@@ -24,6 +24,10 @@ export class HeroService implements HeroInterface {
           total: heros.length
         };
     }),
+    catchError( err=> {
+        console.error(err);
+        return throwError('opps!!')
+      })
     );
   }
 /**
@@ -32,7 +36,13 @@ export class HeroService implements HeroInterface {
  */
   getHero(hero : number): Observable<Hero> {
 
-    return this.http.get<Hero>(`${this.apiUrl}${hero}`);
+    return this.http.get<Hero>(`${this.apiUrl}${hero}`)
+    .pipe(
+      catchError( err=> {
+        console.error(err);
+        return throwError('opps!!')
+      })
+    );
   }
 /**
  * 
@@ -51,6 +61,10 @@ export class HeroService implements HeroInterface {
           total: heros.length
         };
     }),
+    catchError( err=> {
+      console.log(err);
+      return throwError('opps!!')
+    })
     );
   }
 /**
@@ -60,7 +74,13 @@ export class HeroService implements HeroInterface {
   updateHero(hero : Hero): Observable<Hero> {
     return this.http.put<Hero>(`${this.apiUrl}${hero.id}`, hero,{
         headers:this.headers
-    });
+    })
+    .pipe(
+      catchError( err=> {
+        console.log(err);
+        return throwError('opps!!')
+      })
+    );
   }
 /**
  * 
@@ -69,7 +89,12 @@ export class HeroService implements HeroInterface {
   deleteHero(hero : number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}${hero}`, {headers:this.headers})
     .pipe(
-      map(resp => {return {msg:'success'}})
+      map(resp => {return {msg:'success'}}),
+        catchError( err=> {
+          console.log(err);
+          return throwError('opps!!')
+        })
     );
   }
+
 }

@@ -39,13 +39,12 @@ describe('SearchFormComponent', () => {
 
   });
 
-  it('input trigger search emmiter', () => {
+  it('search() emmiter send the term', () => {
 
     const term = 'Test Word';
     component.searchTerm.subscribe( (word:string) => {
       expect(word).toBe(term)
     } )  
     component.search(term);
-    
   });
 });

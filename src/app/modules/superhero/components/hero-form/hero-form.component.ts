@@ -32,7 +32,7 @@ export class HeroFormComponent implements OnInit {
   msgRequied = 'Required!!';
   hero: Hero;
 
-  subriptions: Subscription[] = []
+  subscriptions: Subscription[] = []
   form: FormGroup;
   matcher = new CustomErrorStateMatcher();
   
@@ -44,7 +44,7 @@ export class HeroFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      id: new FormControl({value:null, onlyRead:true}, Validators.required),
+      id: new FormControl({value:null, disabled:true}, Validators.required),
       name: new FormControl(null, Validators.required),
       realName: new FormControl(null, Validators.required),
       publisher: new FormControl(null, Validators.required),
@@ -67,13 +67,18 @@ export class HeroFormComponent implements OnInit {
     err => {
       console.error(err)
     });
+    this.subscriptions.push(subs);
   }
+
   update(){
     const subs = this.heroService.updateHero({...this.form.getRawValue()})
       .subscribe( hero => {
         this.back();
+      },
+      err => {
+        console.error(err)
       });
-    this.subriptions.push(subs);
+    this.subscriptions.push(subs);
   }
   /**
    * 
@@ -91,6 +96,6 @@ export class HeroFormComponent implements OnInit {
    * 
    */
   onDestroy(){
-    this.subriptions.forEach(subscription => subscription.unsubscribe())
+    this.subscriptions.forEach(subscription => subscription.unsubscribe())
   }
 }

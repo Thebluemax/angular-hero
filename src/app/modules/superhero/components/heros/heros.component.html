@@ -45,6 +45,7 @@
         [length]="herosTotal"
         [pageSize]="rows"
         [pageSizeOptions]="pageSizeOptions"
+        (page)="changePage($event.pageIndex,$event.pageSize)"
         aria-label="Select page">
     </mat-paginator>
     </mat-card-content>

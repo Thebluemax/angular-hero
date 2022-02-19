@@ -11,7 +11,7 @@ export class SpinnerComponent implements OnInit {
   open:boolean;
   constructor(
     private spinnerService: SpinnerService
-  ) {  console.log('created')}
+  ) { }
 
   ngOnInit(): void {
     this.spinnerService.status
