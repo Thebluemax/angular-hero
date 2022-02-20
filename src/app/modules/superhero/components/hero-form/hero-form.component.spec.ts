@@ -79,7 +79,6 @@ describe('HeroFormComponent', () => {
   it('should init correctly', () => {
     const func = spyOn(component, 'getHero');
     component.ngOnInit();
-
     expect(func).toHaveBeenCalledWith(heros[0].id);
   });
 
@@ -132,7 +131,6 @@ describe('HeroFormComponent', () => {
     });
   });
 
-
   it('back() must call navigate ', () => {
     routerSpy.navigate.and.callFake(():any => {
       return null;
@@ -142,7 +140,6 @@ describe('HeroFormComponent', () => {
   });
 
   it('onDestroy()  close al susbcriptions', () => {
-   
     component.update();
     (component.subscriptions[0].closed)
     expect(component.subscriptions[0].closed).toBeFalsy();

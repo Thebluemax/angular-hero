@@ -69,7 +69,9 @@ export class HeroFormComponent implements OnInit {
     });
     this.subscriptions.push(subs);
   }
-
+/**
+ * 
+ */
   update(){
     const subs = this.heroService.updateHero({...this.form.getRawValue()})
       .subscribe( hero => {
