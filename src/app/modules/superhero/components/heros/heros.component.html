@@ -38,7 +38,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <mat-paginator class="mat-elevation-z8" #paginator [length]="herosTotal" [pageSize]="rows"
+      <mat-paginator class="mat-elevation-z2" #paginator [length]="herosTotal" [pageSize]="rows"
         [pageSizeOptions]="pageSizeOptions" (page)="changePage($event.pageIndex, $event.pageSize)"
         aria-label="Select page">
       </mat-paginator>

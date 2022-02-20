@@ -8,6 +8,13 @@
       "group": "Justice League"
     },
     {
+      "id": 158181274,
+      "name": "Wonder Woman",
+      "realName": "Diana Prince",
+      "publisher": "DC",
+      "group": "Justice League"
+    },
+    {
       "id": 158181273,
       "name": "Wonder Woman",
       "realName": "Diana Prince",
@@ -39,7 +46,7 @@
       "id": 1581342712,
       "name": "Starman",
       "realName": "Thom Kallor",
-      "publisher": "Dc",
+      "publisher": "DC",
       "group": "Legion of Super-Heroes"
     },
     {
@@ -48,6 +55,20 @@
       "realName": "James Logan",
       "publisher": "Marvel",
       "group": "X-Men"
+    },
+    {
+      "id": 1581814502,
+      "name": "Superman",
+      "realName": "Clark Kent",
+      "publisher": "DC",
+      "group": "Justice League"
+    },
+    {
+      "id": 1581815432,
+      "name": "Flash",
+      "realName": "Barry Allen",
+      "publisher": "DC",
+      "group": "Justice League"
     },
     {
       "id": 1581812990,
@@ -74,6 +95,20 @@
       "id": 158181987,
       "name": "Jean Grey",
       "realName": "Jean Elaine Grey Summers",
+      "publisher": "Marvel",
+      "group": "X-Men"
+    },
+    {
+      "id": 158181987,
+      "name": "Cable",
+      "realName": "Nathaniel \"Nathan\" Summers",
+      "publisher": "Marvel",
+      "group": "X-Men"
+    },
+    {
+      "id": 158182367,
+      "name": "Cyclops",
+      "realName": "Scott Summers",
       "publisher": "Marvel",
       "group": "X-Men"
     },
