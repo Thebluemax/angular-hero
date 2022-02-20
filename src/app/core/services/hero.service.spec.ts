@@ -69,7 +69,6 @@ describe('HeroService', () => {
     const url = `${environment.apiUrl}`;
     const request = httpMock.expectOne(url);
     expect(request.request.method).toBe('GET');
-    
     request.flush(herosMock)
   });
 
@@ -83,10 +82,7 @@ describe('HeroService', () => {
     });
     const url = `${environment.apiUrl}`;
     const request = httpMock.expectOne(url);
-    //expect(request.request.method).toBe('GET');
-    
     request.error(new ErrorEvent('network error'))
-  
   });
 
   it('getHero(heroId) return the hero', () => {
@@ -99,7 +95,6 @@ describe('HeroService', () => {
     const url = `${environment.apiUrl}${herosMock[0].id}`;
     const req = httpMock.expectOne(url);
     expect(req.request.method).toBe('GET');
-    
     req.flush(herosMock[0])
   });
 
@@ -113,8 +108,6 @@ describe('HeroService', () => {
     });
     const url = `${environment.apiUrl}${herosMock[0].id}`;
     const request = httpMock.expectOne(url);
-    //expect(request.request.method).toBe('GET');
-    
     request.error(new ErrorEvent('network error'));
   });
 
@@ -129,7 +122,6 @@ describe('HeroService', () => {
     const url = `${environment.apiUrl}?name_like=${word}`;
     const req = httpMock.expectOne(url);
     expect(req.request.method).toBe('GET');
-    
     req.flush(herosMock)
   });
 
@@ -158,26 +150,21 @@ describe('HeroService', () => {
     const url = environment.apiUrl;
     const req = httpMock.expectOne(url);
     expect(req.request.method).toBe('GET');
-    
     req.flush(herosMock)
   });
 
   it('updateHero( hero )  return a hero', () => {
-    
     service.updateHero(updateHeroMock)
     .subscribe( (hero:Hero) => {
       expect(hero).toBe(updateHeroMock);
-      
     });
     const url = `${environment.apiUrl}${updateHeroMock.id}`;
     const req = httpMock.expectOne(url);
     expect(req.request.method).toBe('PUT');
-    
     req.flush(updateHeroMock)
   });
 
   it('updateHero( hero ) catch error', () => {
-
     service.updateHero(herosMock[0])
     .subscribe( () => {
     },
@@ -191,21 +178,17 @@ describe('HeroService', () => {
   });
   
   it('deleteHero( hero )  return "success"', () => {
-    
     service.deleteHero(updateHeroMock.id)
     .subscribe( (resp) => {
       expect(resp.msg).toBe('success');
-      
     });
     const url = `${environment.apiUrl}${updateHeroMock.id}`;
     const req = httpMock.expectOne(url);
     expect(req.request.method).toBe('DELETE');
-    
     req.flush({})
   });
 
   it('deleteHero( hero ) catch error', () => {
-
     service.deleteHero(herosMock[0].id)
     .subscribe( () => {
     },
@@ -214,7 +197,6 @@ describe('HeroService', () => {
     });
     const url = `${environment.apiUrl}${herosMock[0].id}`;
     const request = httpMock.expectOne(url);
-    
     request.error(new ErrorEvent('network error'));
   });
 });
