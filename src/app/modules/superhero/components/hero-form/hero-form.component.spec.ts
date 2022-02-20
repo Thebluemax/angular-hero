@@ -36,12 +36,12 @@ describe('HeroFormComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
-        HttpClientTestingModule,
-        SharedModule,
-        NoopAnimationsModule,
         FormsModule,
-        ReactiveFormsModule
+        HttpClientTestingModule,
+        NoopAnimationsModule,
+        ReactiveFormsModule,
+        RouterTestingModule,
+        SharedModule,
       ],
       declarations: [HeroFormComponent],
       providers: [
@@ -68,7 +68,6 @@ describe('HeroFormComponent', () => {
     fixture = TestBed.createComponent(HeroFormComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(HeroService);
-   // router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
@@ -95,7 +94,7 @@ describe('HeroFormComponent', () => {
     expect(component.subscriptions.length).toEqual(subsLength + 1);
   });
 
-  it('update() call get updateHero in service and call back', () => {
+  it('update() call get updateHero in service and call back()', () => {
     const subsLength = component.subscriptions.length;
     component.form.setValue(heros[0]);
     const back = spyOn(component, 'back');
