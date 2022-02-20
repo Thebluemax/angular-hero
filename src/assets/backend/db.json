@@ -15,24 +15,11 @@
       "group": "Justice League"
     },
     {
-      "id": 1581812512,
-      "name": "Vision",
-      "realName": "Vision",
-      "publisher": "Marvel",
-      "group": "Avengers"
-    },
-    {
       "id": 1581852712,
-      "name": "Hulk",
+      "name": "Hulky",
       "realName": "David Baner",
       "publisher": "Marvel",
       "group": "Avengers"
-    },
-    {
-      "id": 1581812813,
-      "name": "Spawn",
-      "realName": "Albert Francis \"Al\" Simmons",
-      "publisher": "Imagine"
     },
     {
       "id": 1581817782,
@@ -47,12 +34,6 @@
       "realName": "Querl Dox",
       "publisher": "DC",
       "group": "Legion of Super-Heroes"
-    },
-    {
-      "id": 1581812924,
-      "name": "Space Ghost",
-      "realName": "Thaddeus Bach",
-      "publisher": "Hanna-Barbera"
     },
     {
       "id": 1581342712,

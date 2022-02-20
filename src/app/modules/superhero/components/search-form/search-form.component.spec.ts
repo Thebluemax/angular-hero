@@ -11,10 +11,10 @@ describe('SearchFormComponent', () => {
   beforeEach(async () => {
 
     await TestBed.configureTestingModule({
-      imports:[SharedModule, NoopAnimationsModule],
-      declarations: [ SearchFormComponent ]
+      imports: [SharedModule, NoopAnimationsModule],
+      declarations: [SearchFormComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
   });
 
@@ -42,9 +42,9 @@ describe('SearchFormComponent', () => {
   it('search() emmiter send the term', () => {
 
     const term = 'Test Word';
-    component.searchTerm.subscribe( (word:string) => {
+    component.searchTerm.subscribe((word: string) => {
       expect(word).toBe(term)
-    } )  
+    })
     component.search(term);
   });
 });

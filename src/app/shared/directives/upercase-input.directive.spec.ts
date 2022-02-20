@@ -23,7 +23,7 @@ describe('UpercaseInputDirective', () => {
     fixture = TestBed.createComponent(TestInputComponent);
     component = fixture.componentInstance;
     inputEL = fixture.debugElement;
-    fixture.detectChanges(); // initial binding
+    fixture.detectChanges(); 
   });
 
   it('should create an instance', () => {
@@ -37,6 +37,5 @@ describe('UpercaseInputDirective', () => {
     const directive = fixture.debugElement.query(By.directive(UpercaseInputDirective));
     fixture.detectChanges();
     expect(directive.nativeElement.style.textTransform).toBe(value);
-  //  expect(directive).not.toBeNull();
   });
 });

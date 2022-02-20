@@ -12,13 +12,10 @@ describe('SuperheroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SuperheroComponent ],
-      imports: [RouterTestingModule,
-        NoopAnimationsModule,
-      SharedModule],
-      providers:[HeroService]
-    })
-    .compileComponents();
+      declarations: [SuperheroComponent],
+      imports: [RouterTestingModule, NoopAnimationsModule, SharedModule],
+      providers: [HeroService],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -32,8 +29,6 @@ describe('SuperheroComponent', () => {
   });
 
   it(`should have as title 'superhero' by default`, () => {
-
-    expect( component.title ).toBe('SuperHero App');
-
+    expect(component.title).toBe('SuperHero App');
   });
 });

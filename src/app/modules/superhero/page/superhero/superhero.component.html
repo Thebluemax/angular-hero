@@ -1,13 +1,15 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button  aria-label="SuperHero Icon">
-    <mat-icon>token</mat-icon>
-  </button>
-  <span id="main-title">{{ title }}</span>
-  <span class="toolbar-spacer"></span>
-</mat-toolbar>
-<div class="margin-container">
-  <router-outlet></router-outlet>
-  <app-spinner></app-spinner>
+<div class="w-100">
+  <mat-toolbar color="primary">
+    <button mat-icon-button  aria-label="SuperHero Icon">
+      <mat-icon>token</mat-icon>
+    </button>
+    <span id="main-title">{{ title }}</span>
+    <span class="toolbar-spacer"></span>
+  </mat-toolbar>
+  <div class="">
+    <router-outlet></router-outlet>
+    <app-spinner></app-spinner>
+  </div>
 </div>
 
 

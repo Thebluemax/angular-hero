@@ -1,13 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Observable, Subscription, of } from 'rxjs';
-import { HerosComponent } from './heros.component';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
+import { of } from 'rxjs';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { HeroService } from 'src/app/core/services/hero.service';
 import { SearchFormComponent } from '../search-form/search-form.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Router } from '@angular/router';
+import { HerosComponent } from './heros.component';
+import { Hero } from 'src/app/core/models/hero';
 
 const heros = [
   {
@@ -67,7 +68,6 @@ describe('HerosComponent', () => {
         NoopAnimationsModule,
         HttpClientTestingModule,
       ],
-      //providers:[ HeroService]
     }).compileComponents();
   });
 
@@ -83,10 +83,6 @@ describe('HerosComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('Must have the initial setup', () => {
     expect(component.dataSource).toBeTruthy();
     expect(component.page).toBe(1);
@@ -95,28 +91,8 @@ describe('HerosComponent', () => {
     expect(component.pageSizeOptions.length).toBe(4);
   });
 
-  /*it('must a mat table and the headers number', () => {
-    const compiled = fixture.nativeElement as HTMLElement;
-    const matTable = compiled.querySelector('table.mat-table');
-    expect(matTable).toBeTruthy();
-
-    const headerLength = component.displayedColumns.length;
-    const childrens = matTable?.querySelectorAll('th.mat-header-cell');
-
-    expect(childrens?.length).toBe(headerLength);
-  });*/
-
-  /*it('the numbers of rows have to be the same number of heros', () => {
-    component.dataSource.data = heros;
-    const compiled = fixture.nativeElement as HTMLElement;
-    const rows = compiled.querySelectorAll('tr.mat-row');
-
-    expect( rows ).toBeTruthy();
-    expect(rows?.length).toBe(heros.length);
-  });*/
-
   it('the paginator must have the default setUp ', () => {
-    component.dataSource.data = heros;
+    component.dataSource = heros;
     expect(component.paginator).toBeTruthy();
     expect(component.paginator.length).toBe(0);
     expect(component.paginator.pageSize).toBe(component.rows);
@@ -133,7 +109,7 @@ describe('HerosComponent', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  it('getHeros() must call getHeros() in service and fill heros', () => {
+  it('getHeros() must call getHeros() in the service and fill heros', () => {
     const spy = spyOn(service, 'getHeros').and.callFake(() => {
       return of({ heros: heros, total: heros.length });
     });
@@ -141,7 +117,7 @@ describe('HerosComponent', () => {
     fixture.detectChanges();
     component.getHeros();
     expect(spy).toHaveBeenCalled();
-    expect(component.dataSource.data).toEqual(heros);
+    expect(component.dataSource).toEqual(heros);
     expect(component.herosTotal).toEqual(heros.length);
   });
 
@@ -152,7 +128,7 @@ describe('HerosComponent', () => {
     });
     component.search(word);
     expect(spy).toHaveBeenCalledWith(word);
-    expect(component.dataSource.data).toEqual(heros);
+    expect(component.dataSource).toEqual(heros);
     expect(component.herosTotal).toEqual(heros.length);
   });
 
@@ -196,6 +172,41 @@ describe('HerosComponent', () => {
     expect(component.heroList.length).toBe(heros.length -1);
     expect(component.heroList[0]).toBe(heros[1]);
     expect(component.herosTotal).toBe(heros.length - 1);
+  });
+
+  it('paginateList()  paginate correctly', () => {
+    const lengthList = heros.length;
+    const page = 0;
+    const size = 3;
+    component.heroList = heros;
+    const listPaginated: Hero[] = component.paginateList(page, size);
+    expect(listPaginated.length).toBe(size);
+    expect(listPaginated[0]).toEqual(heros[0]);
+    expect(listPaginated[size - 1]).toEqual(heros[size - 1]);
+    expect(component.herosTotal).toBe(length);
+  });
+
+  it('paginateList()  return the last evenly the size are out off array range', () => {
+   
+    const lengthList = heros.length;
+    const page = 1;
+    const size = 4;
+    component.heroList = heros;
+    const listPaginated: Hero[] = component.paginateList(page, size);
+    expect(listPaginated.length).toBe(lengthList - size );
+    expect(listPaginated[0]).toEqual(heros[size]);
+    expect(listPaginated[listPaginated.length - 1]).toEqual(heros[lengthList - 1]);
+  });
+
+  it('paginateList()  return empty array if the page are out off array range', () => {
+   
+    const lengthList = heros.length;
+    const page = 2;
+    const size = 4;
+    component.heroList = heros;
+    const listPaginated: Hero[] = component.paginateList(page, size);
+    expect(listPaginated.length).toBe(0);
+    
   });
 
   it('onDestroy()  close al susbcriptions', () => {

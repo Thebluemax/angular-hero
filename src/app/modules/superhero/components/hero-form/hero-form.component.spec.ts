@@ -111,7 +111,7 @@ describe('HeroFormComponent', () => {
     expect(component.subscriptions.length).toEqual(subsLength + 1);
   });
 
-  it('hasError() must be true to all, execepts group ', () => {
+  it('hasError() must be true to all, execepts group and id', () => {
     Object.keys(component.form.controls).forEach((key) => {
       switch (key) {
         case 'id':

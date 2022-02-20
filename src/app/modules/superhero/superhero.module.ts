@@ -15,18 +15,18 @@ import { LoadingInterceptor } from 'src/app/core/interceptors/loading.intercepto
 
 @NgModule({
   declarations: [
-    SuperheroComponent,
-    SearchFormComponent,
+    HeroFormComponent,
     HerosComponent,
-    HeroFormComponent
+    SearchFormComponent,
+    SuperheroComponent,
   ],
   imports: [
     CommonModule,
-    SharedModule,
-    HttpClientModule,
-    SuperheroRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    SharedModule,
+    SuperheroRoutingModule,
   ],
   providers: [
     HeroService,
